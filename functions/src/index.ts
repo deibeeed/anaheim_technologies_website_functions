@@ -9,7 +9,13 @@ export const helloWorld = functions.https.onRequest((request, response) => {
   response.send('Hello from Firebase!');
 });
 
-export const sendMail = functions.https.onRequest((req, res) => {
-  nodemailer.createTransport()
+export const sendMail = functions.https.onRequest(async (req, res) => {
+  const transporter = nodemailer.createTransport();
+  const mailResponse = await transporter.sendMail({
+
+  });
+
+  console.log(`Mail send response ${mailResponse.response}`);
+
 });
 
